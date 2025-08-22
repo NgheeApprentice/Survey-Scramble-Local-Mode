@@ -1,0 +1,369 @@
+﻿{
+    "tabs":[
+        {
+            "title":"AUDIO_VIDEO_CATEGORY",
+            "sources": ["Volume", "VolumeHost", "VolumeSfx", "VolumeMusic", "AudioMix", "FullScreen"]
+        },
+        {
+            "title":"CONTENT_CONTROL_CATEGORY",
+            "sources": ["Locale", "EnglishLocale", "FamilyFriendly", "PlayerContentFiltering", "ModeratedRoom", "FilterUSCentricContent", "ShowAllAnswers"]
+        },
+        {
+            "title":"ACCESSIBILITY_CATEGORY",
+            "sources": ["Subtitles", "MotionSensitivity", "ExtendedTimers", "NoTimers"]
+        },
+        {
+            "title":"GAMEPLAY_CATEGORY",
+            "sources": ["DropInDropOut", "AudienceOn", "MaxPlayers", "SkipTutorial", "PostGameSharing", "PasswordedRoom", "RequireTwitch", "GamepadStart", "HideRoomCode"]
+        },
+        {
+            "title":"MORE_GAMEPLAY_CATEGORY",
+            "sources": ["KeepGoing", "HighLowSplitPoints", "UnlimitedSpeed", "ScrambleSquares", "SquaresStrikes", "HorseRaceDistance", "SkipBounceTutorial", "BounceBallStartingSpeed", "BounceBallPaddleSpeed", "BounceBallScoreSpeed", "BounceBoardSize", "TournamentGoal"]
+        },
+        {
+            "title":"MODIFICATIONS",
+            "sources": ["LenientCategoryPool","IgnoreUpToDatePriority","OldLists"]
+        }
+    ],
+    "items": [
+
+
+        {
+            "title": "VOLUME",
+            "type": "Range",
+            "onChangedSfx": "PAUSE/SETTINGS/VolumeMasterChanged",
+            "source": "Volume",
+            "description": "VOLUME_DESCRIPTION",
+            "step": 0.1
+        },
+        {
+            "title": "VOLUME_HOST",
+            "type": "Range",
+            "onChangedSfx": "PAUSE/SETTINGS/VolumeHostChanged",
+            "onChangedFaderGroup": "HOST",
+            "source": "VolumeHost",
+            "description": "VOLUME_HOST_DESCRIPTION",
+            "step": 0.1
+        },
+        {
+            "title": "VOLUME_SFX",
+            "type": "Range",
+            "onChangedSfx": "PAUSE/SETTINGS/VolumeSFXChanged",
+            "onChangedFaderGroup": "SFX",
+            "source": "VolumeSfx",
+            "description": "VOLUME_SFX_DESCRIPTION",
+            "step": 0.1
+        },
+        {
+            "title": "VOLUME_MUSIC",
+            "type": "Range",
+            "onChangedSfx": "PAUSE/SETTINGS/VolumeMusicChanged",
+            "onChangedFaderGroup": "MUSIC",
+            "source": "VolumeMusic",
+            "description": "VOLUME_MUSIC_DESCRIPTION",
+            "step": 0.1
+        },
+        {
+            "title": "AUDIO_MIX",
+            "type": "WideList",
+            "onChangedSfx": "PAUSE/SETTINGS/WideListToggle",
+            "source": "AudioMix",
+            "description": "AUDIO_MIX_DESCRIPTION",
+            "options": [
+                "AUDIO_MIX_SURROUND",
+                "AUDIO_MIX_STEREO",
+                "AUDIO_MIX_MONO"
+            ],
+            "localizedOptions": true,
+            "defaultValueIndex":0
+        },
+        {
+            "title": "FULL_SCREEN",
+            "type": "Toggle",
+            "onChangedSfx": "PAUSE/SETTINGS/FullScreenToggle",
+            "source": "FullScreen",
+            "description": "FULL_SCREEN_DESCRIPTION",
+            "isValid": "supportsWindow AND supportsFullScreen"
+        },
+
+
+        {
+            "title": "LANGUAGE",
+            "type": "ExtraWideList",
+            "onChangedSfx": "PAUSE/SETTINGS/WideListToggle",
+            "source": "Locale",
+            "description": "LANGUAGE_DESCRIPTION",
+            "isValid": "supportedLocales AND supportedLocales != \"en\"",
+            "isEnabled": "currentContext == \"menu\"",
+            "options": "supportedLocales",
+            "localizedOptions": true,
+            "defaultValueIndex": 0
+        },
+        {
+            "title": "ENGLISH_LOCALE",
+            "type": "ExtraWideList",
+            "onChangedSfx": "PAUSE/SETTINGS/WideListToggle",
+            "source": "EnglishLocale",
+            "description": "ENGLISH_LOCALE_DESCRIPTION",
+            "options": [
+                "ENGLISH_LOCALE_US",
+                "ENGLISH_LOCALE_GB",
+                "ENGLISH_LOCALE_AU"
+            ],
+            "localizedOptions": true,
+            "isVisible": "locale==\"en\"",
+            "isEnabled": "locale==\"en\" and (currentContext == \"menu\" OR currentContext == \"lobby\" OR currentContext == \"endableLobby\")",
+            "defaultValueIndex": 0
+        },
+        {
+            "title": "FAMILY_FRIENDLY",
+            "type": "Toggle",
+            "source": "FamilyFriendly",
+            "description": "FAMILY_FRIENDLY_DESCRIPTION",
+            "isEnabled": "currentContext == \"menu\" OR currentContext == \"lobby\" OR currentContext == \"endableLobby\""
+        },
+        {
+            "title": "PLAYER_CONTENT_FILTERING",
+            "type": "WideList",
+            "onChangedSfx": "PAUSE/SETTINGS/WideListToggle",
+            "source": "PlayerContentFiltering",
+            "description": [ "PLAYER_CONTENT_FILTERING_OFF_DESCRIPTION", "PLAYER_CONTENT_FILTERING_HATE_SPEECH_DESCRIPTION", "PLAYER_CONTENT_FILTERING_PROFANITY_DESCRIPTION" ],
+            "options": [ "PLAYER_CONTENT_FILTERING_OFF", "PLAYER_CONTENT_FILTERING_HATE_SPEECH", "PLAYER_CONTENT_FILTERING_PROFANITY" ],
+            "localizedOptions": true,
+            "defaultValueIndex": 1,
+            "isEnabled": "currentContext == \"menu\" OR currentContext == \"lobby\" OR currentContext == \"endableLobby\""
+        },
+        {
+            "title": "MODERATION",
+            "type": "Password",
+            "source": "ModeratedRoom",
+            "password": "MODERATION_PASSWORD",
+            "description": "MODERATION_DESCRIPTION",
+            "isEnabled": "currentContext == \"menu\""
+        },
+        {
+            "title": "FILTER_US_CENTRIC",
+            "type": "Toggle",
+            "source": "FilterUSCentricContent",
+            "description": "FILTER_US_CENTRIC_DESCRIPTION",
+            "isEnabled": "currentContext == \"menu\" OR currentContext == \"lobby\" OR currentContext == \"endableLobby\""
+        },
+        {
+            "title": "SUBTITLES",
+            "type": "Toggle",
+            "source": "Subtitles",
+            "description": "SUBTITLES_DESCRIPTION"
+        },
+        {
+            "title": "NO_TIMERS",
+            "type": "Toggle",
+            "source": "NoTimers",
+            "description": "NO_TIMERS_DESCRIPTION",
+            "isEnabled": "currentContext == \"menu\" OR currentContext == \"lobby\" OR currentContext == \"endableLobby\""
+        },
+        {
+            "title": "EXTENDED_TIMERS",
+            "type": "Toggle",
+            "source": "ExtendedTimers",
+            "description": "EXTENDED_TIMERS_DESCRIPTION",
+            "isEnabled": "currentContext == \"menu\" OR currentContext == \"lobby\" OR currentContext == \"endableLobby\""
+        },
+
+        {
+            "title": "VOTE_FOR_KEEP_GOING",
+            "type": "Toggle",
+            "source": "KeepGoing",
+            "description": "VOTE_FOR_KEEP_GOING_DESCRIPTION",
+            "isEnabled": "currentContext == \"menu\" OR currentContext == \"lobby\" OR currentContext == \"endableLobby\""
+        },
+        {
+            "title": "ULIMITED_SPEED_SETTING",
+            "type": "Toggle",
+            "source": "UnlimitedSpeed",
+            "description": "ULIMITED_SPEED_SETTING_DESCRIPTION",
+            "isEnabled": "currentContext == \"menu\" OR currentContext == \"lobby\" OR currentContext == \"endableLobby\""
+        },
+        {
+            "title": "HIGH_LOW_SPLIT_POINTS",
+            "type": "Toggle",
+            "source": "HighLowSplitPoints",
+            "description": "HIGH_LOW_SPLIT_POINTS_DESCRIPTION",
+            "isEnabled": "currentContext == \"menu\" OR currentContext == \"lobby\" OR currentContext == \"endableLobby\""
+        },
+        {
+            "title": "SQUARES_STRIKES_SETTING",
+            "type": "Toggle",
+            "source": "SquaresStrikes",
+            "description": "SQUARES_STRIKES_SETTING_DESCRIPTION",
+            "isEnabled": "currentContext == \"menu\" OR currentContext == \"lobby\" OR currentContext == \"endableLobby\""
+        },
+        {
+            "title": "SCRAMBLE_SQUARES_SETTING",
+            "type": "Toggle",
+            "source": "ScrambleSquares",
+            "description": "SCRAMBLE_SQUARES_SETTING_DESCRIPTION",
+            "isEnabled": "currentContext == \"menu\" OR currentContext == \"lobby\" OR currentContext == \"endableLobby\""
+        },
+        {
+            "title": "BOUNCE_SKIP_TUTORIAL",
+            "type": "Toggle",
+            "source": "SkipBounceTutorial",
+            "description": "BOUNCE_SKIP_TUTORIAL_DESCRIPTION",
+            "isEnabled": "currentContext == \"menu\" OR currentContext == \"lobby\" OR currentContext == \"endableLobby\""
+        },
+        {
+            "title": "BOUNCE_BALL_STARTING_SPEED",
+            "type": "List",
+            "source": "BounceBallStartingSpeed",
+            "description": "BOUNCE_BALL_STARTING_SPEED_DESCRIPTION",
+            "options": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+            "defaultValueIndex": 3
+        },
+        {
+            "title": "BOUNCE_BALL_PADDLE_SPEED",
+            "type": "List",
+            "source": "BounceBallPaddleSpeed",
+            "description": "BOUNCE_BALL_PADDLE_SPEED_DESCRIPTION",
+            "options": [ "0%", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%", "150%", "200%" ],
+            "localizedOptions": false,
+            "defaultValueIndex": 2
+        },
+        {
+            "title": "BOUNCE_BALL_SCORE_SPEED",
+            "type": "List",
+            "source": "BounceBallScoreSpeed",
+            "description": "BOUNCE_BALL_SCORE_SPEED_DESCRIPTION",
+            "options": [ "0%", "1%", "2%", "3%", "4%", "5%", "10%", "15%", "20%", "25%", "30%", "40%", "50%" ],
+            "localizedOptions": false,
+            "defaultValueIndex": 5
+        },
+        {
+            "title": "BOUNCE_BOARD_SIZE",
+            "type": "WideList",
+            "onChangedSfx": "PAUSE/SETTINGS/WideListToggle",
+            "source": "BounceBoardSize",
+            "description": "BOUNCE_BOARD_SIZE_DESCRIPTION",
+            "options": [ "BOUNCE_BOARD_SIZE_SMALL", "BOUNCE_BOARD_SIZE_MEDIUM", "BOUNCE_BOARD_SIZE_LARGE" ],
+            "localizedOptions": true,
+            "defaultValueIndex": 0,
+            "isEnabled": "currentContext == \"menu\" OR currentContext == \"lobby\" OR currentContext == \"endableLobby\""
+        },
+        {
+            "title": "HORSE_RACE_DISTANCE",
+            "type": "List",
+            "onChangedSfx": "PAUSE/SETTINGS/WideListToggle",
+            "source": "HorseRaceDistance",
+            "description": "HORSE_RACE_DISTANCE_DESCRIPTION",
+            "options": [ 8, 9, 10, 11, 12, 13, 14 ],
+            "defaultValueIndex": 0,
+            "isEnabled": "currentContext == \"menu\" OR currentContext == \"lobby\" OR currentContext == \"endableLobby\""
+        },
+        {
+            "title": "DROP_IN_DROP_OUT_SETTING",
+            "type": "Toggle",
+            "source": "DropInDropOut",
+            "description": "DROP_IN_DROP_OUT_SETTING_DESCRIPTION",
+            "isEnabled": "currentContext == \"menu\""
+        },
+        {
+            "title": "TOURNAMENT_GOAL",
+            "type": "WideList",
+            "onChangedSfx": "PAUSE/SETTINGS/WideListToggle",
+            "source": "TournamentGoal",
+            "description": "TOURNAMENT_GOAL_DESCRIPTION",
+            "options": [ "TOURNAMENT_GOAL_OFF", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+            "localizedOptions": true,
+            "defaultValueIndex": 0,
+            "isEnabled": "currentContext == \"menu\"",
+            "isValid": true
+        },
+        {
+            "title": "SHOW_ALL_ANSWERS",
+            "type": "Toggle",
+            "source": "ShowAllAnswers",
+            "description": "SHOW_ALL_ANSWERS_DESCRIPTION"
+        },
+        {
+            "title": "AUDIENCE_MODE",
+            "type": "Toggle",
+            "source": "AudienceOn",
+            "description": "AUDIENCE_MODE_DESCRIPTION",
+            "isEnabled": "currentContext == \"menu\""
+        },
+        {
+            "title": "SKIP_TUTORIALS",
+            "type": "Toggle",
+            "source": "SkipTutorial",
+            "description": "SKIP_TUTORIALS_DESCRIPTION",
+            "isEnabled": "currentContext == \"menu\" OR currentContext == \"lobby\" OR currentContext == \"endableLobby\""
+        },
+        {
+            "title": "POSTGAME_SHARING",
+            "type": "Toggle",
+            "source": "PostGameSharing",
+            "description": "POSTGAME_SHARING_DESCRIPTION",
+            "isEnabled": "currentContext == \"menu\" OR currentContext == \"lobby\" OR currentContext == \"endableLobby\""
+        },
+        {
+            "title": "PASSWORD_PROTECTED",
+            "type": "Password",
+            "source": "PasswordedRoom",
+            "password": "PASSWORD_PROTECTED_LABEL",
+            "description": "PASSWORD_PROTECTED_DESCRIPTION",
+            "isEnabled": "currentContext == \"menu\""
+        },
+        {
+            "title": "TWITCH_REQUIRED",
+            "type": "Toggle",
+            "source": "RequireTwitch",
+            "description": "TWITCH_REQUIRED_DESCRIPTION",
+            "isEnabled": "currentContext == \"menu\""
+        },
+        {
+            "title": "START_GAMEPAD",
+            "type": "Toggle",
+            "source": "GamepadStart",
+            "description": "START_GAMEPAD_DESCRIPTION",
+            "isEnabled": "currentContext == \"menu\""
+        },
+        {
+            "title": "HIDE_ROOM_CODE",
+            "type": "Toggle",
+            "source": "HideRoomCode",
+            "description": "HIDE_ROOM_CODE_DESCRIPTION",
+            "isEnabled": "currentContext == \"menu\""
+        },
+        {
+            "title": "MAX_PLAYERS",
+            "type": "List",
+            "onChangedSfx": "PAUSE/SETTINGS/WideListToggle",
+            "source": "MaxPlayers",
+            "description": "MAX_PLAYERS_DESCRIPTION",
+            "options": [ 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+            "defaultValueIndex": 8,
+            "isEnabled": "currentContext == \"menu\""
+        },
+        {
+            "title": "LENIENT_CATEGORY_POOL",
+            "type": "Toggle",
+            "source": "LenientCategoryPool",
+            "description": "LENIENT_CATEGORY_POOL_DESCRIPTION",
+            "isEnabled": "currentContext == \"menu\" OR currentContext == \"lobby\" OR currentContext == \"endableLobby\""
+        },
+        {
+            "title": "IGNORE_UP_TO_DATE_PRIORITY",
+            "type": "Toggle",
+            "source": "IgnoreUpToDatePriority",
+            "description": "IGNORE_UP_TO_DATE_PRIORITY_DESCRIPTION",
+            "isEnabled": "currentContext == \"menu\" OR currentContext == \"lobby\" OR currentContext == \"endableLobby\""
+        },
+        {
+            "title": "OLD_LISTS",
+            "type": "Toggle",
+            "source": "OldLists",
+            "description": "OLD_LISTS_DESCRIPTION",
+            "isVisible":"locale==\"en\"",
+            "isEnabled": "currentContext == \"menu\" OR currentContext == \"lobby\" OR currentContext == \"endableLobby\""
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "localized" : "true",
+    "items": [
+        {
+            "title":"PLAY",
+            "action":"doPlayGame",
+            "value":0
+        },
+        {
+            "title":"LOCAL_MODE",
+            "action":"doPlayGameLocal",
+            "value":1
+        },
+        {
+            "title":"SETTINGS",
+            "action":"doSettings",
+            "value":2
+        },
+        {
+            "title":"CREDITS",
+            "action":"doCredits",
+            "value":3
+        },
+        {
+            "title":"EXIT",
+            "action":"doExitToDesktop",
+            "value":4,
+            "isValid": "needExitbutton"
+        }
+    ]
+}

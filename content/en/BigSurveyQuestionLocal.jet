@@ -1,0 +1,53 @@
+{
+ "content": [
+  {
+   "countrySpecific": false,
+   "id": "test-001",
+   "pickerTitle": "The Alphabet",
+   "question": "In one letter, what's a letter of the alphabet? (Ranked from first to last)",
+   "reframeQuestions": [],
+   "voteTitle": "The Alphabet"
+  },
+  {
+   "countrySpecific": false,
+   "id": "trivia-001",
+   "pickerTitle": "Bible books by word count (NIV)",
+   "question": "What books of the Holy Bible have the highest word count? (NIV Translation)",
+   "reframeQuestions": [],
+   "preventedModes": [
+    "Speed",
+    "ScrollSearch"
+   ],
+   "voteTitle": "Bible books by word count (NIV)"
+  },
+  {
+   "countrySpecific": false,
+   "id": "trivia-001-speed",
+   "pickerTitle": "Books of the Bible",
+   "question": "Name every book of the Holy Bible, I dare you...",
+   "reframeQuestions": [],
+   "preventedModes": [
+    "HighLow",
+    "TicTacToe",
+    "Bounce",
+    "BetterOrWorse",
+    "HorseRace",
+    "Pegs",
+    "ScrollSearch"
+   ],
+   "voteTitle": "Books of the Bible"
+  },
+  {
+   "countrySpecific": false,
+   "id": "opinion-001",
+   "pickerTitle": "NgheeApprentice's Jackbox \"Tierlist\"",
+   "question": "What Jackbox games does NgheeApprentice rank the highest? (this is gonna get outdated quick lol)",
+   "reframeQuestions": [],
+   "preventedModes": [
+    "Speed",
+    "ScrollSearch"
+   ],
+   "voteTitle": "Nghee's Jack Ranks"
+  }
+ ]
+}

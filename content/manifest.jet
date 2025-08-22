@@ -1,0 +1,11 @@
+{
+    "id":"Main",
+    "name":"BigSurvey Main",
+    "types":[
+        "BigSurveyQuestion",
+        "BigSurveyList",
+        "BigSurveyQuestionLocal",
+        "BigSurveyListLocal",
+        "BigSurveyListDemo"
+    ]
+}
