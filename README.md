@@ -32,6 +32,7 @@ All files in this mod start off in the game's main directory, `.\The Jackbox Sur
 - `menu.jet`
 - `settings.json`
 - `.\content\manifest.jet`
+- `.\swf\bigsurvey_menu.jet`
 
 *It is strongly recommended that you backup any files you plan to replace and/or modify.*
 
@@ -83,7 +84,7 @@ So what does all this do? Well, take a look at this table to find out:
 |`"starterContent"`|Boolean|Allows this content to be played within a device's first three games of The Jackbox Survey Scramble.|`true` or `false`|`false`|
 |`"pickerTitle"`|String|Text that appears for a category during the voting segment. Try to keep this short.|Any viable json-friendly text in quotations `""`|None `""`|
 |`"voteTitle"`|String|Text that appears when a category successfully wins a vote, and remains as a header for the game mode in play. Try to keep this extra-short.|Any viable json-friendly text in quotations `""`|None `""`|
-|`"question"`|String|Text that provides the full question of a category. This appears short after a category wins a vote, and on your controller as well.|Any viable json-friendly text in quotations `""`|None `""`|
+|`"question"`|String|Text that provides the full question of a category. This appears shortly after a category wins a vote, and on your controller as well.|Any viable json-friendly text in quotations `""`|None `""`|
 |`"preventedModes"`|Array|Any mode(s) listed here will not be viable for play with this specific category.|Any number of *viable* strings `""` followed by commas, braced inside sqaure brackets `[]` (e.g. `["HighLow","Speed"]`). Viable answers include: `"HighLow"` (Hilo), `"Speed"` (Speed), `"TicTacToe"` (Sqaures), `"Bounce"` (Bounce), `"BetterOrWorse"` (Dares), `"HorseRace"` (Dash), `"Pegs"` (Pegs), `"ScrollSearch"` (Scroll)|None `[]` (not required)|
 |`"reframeQuestions"`|Array|Any string of text listed here will be used as prompts for the beta 'Scroll' game mode.|Any number of strings `""` followed by commas, braced inside sqaure brackets `[]` (e.g. `["Entry 1","Entry 2"]`)|None `[]` (not required)|
 
